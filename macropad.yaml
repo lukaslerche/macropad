@@ -1,0 +1,162 @@
+esphome:
+  name: macropad
+  friendly_name: MacroPad
+
+esp32:
+  board: esp32-c3-devkitm-1
+  framework:
+    type: esp-idf
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: !secret api_encryption_key
+
+ota:
+  - platform: esphome
+    password: !secret ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: !secret ap_ssid
+    password: !secret ap_password
+
+captive_portal:
+
+# Add 10 buttons using the specified IO pins
+binary_sensor:
+  # Button 1
+  - platform: gpio
+    pin:
+      number: GPIO0  # IO0
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    name: "Button 1"
+    filters:
+      - delayed_on_off: 20ms
+
+  # Button 2
+  - platform: gpio
+    pin:
+      number: GPIO1  # IO1
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    name: "Button 2"
+    filters:
+      - delayed_on_off: 20ms
+
+  # Button 3
+  - platform: gpio
+    pin:
+      number: GPIO3  # IO3
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    name: "Button 3"
+    filters:
+      - delayed_on_off: 20ms
+
+  # Button 4
+  - platform: gpio
+    pin:
+      number: GPIO4  # IO4
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    name: "Button 4"
+    filters:
+      - delayed_on_off: 20ms
+
+  # Button 5
+  - platform: gpio
+    pin:
+      number: GPIO5  # IO5
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    name: "Button 5"
+    filters:
+      - delayed_on_off: 20ms
+
+  # Button 6
+  - platform: gpio
+    pin:
+      number: GPIO6  # IO6
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    name: "Button 6"
+    filters:
+      - delayed_on_off: 20ms
+
+  # Button 7
+  - platform: gpio
+    pin:
+      number: GPIO7  # IO7
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    name: "Button 7"
+    filters:
+      - delayed_on_off: 20ms
+
+  # Button 8
+  - platform: gpio
+    pin:
+      number: GPIO10  # IO10
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    name: "Button 8"
+    filters:
+      - delayed_on_off: 20ms
+
+  # Button 9
+  - platform: gpio
+    pin:
+      number: GPIO20  # IO20
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    name: "Button 9"
+    filters:
+      - delayed_on_off: 20ms
+
+  # Button 10 
+  - platform: gpio 
+    pin:
+      number: GPIO21   # IO21 
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    name: "Button 10"
+    filters:
+      - delayed_on_off: 20ms
+
+# Bluetooth proxy configuration
+esp32_ble_tracker:
+  scan_parameters:
+    interval: 1100ms
+    window: 1100ms
+
+bluetooth_proxy:
+  active: true
