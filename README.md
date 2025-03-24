@@ -13,6 +13,7 @@ This is an ESPHome configuration for a 10-key macropad using a ESP32-C3 Super Mi
 - (Optional) In your router, set a fixed IP address for the ESP32-C3 Super Mini board
 - Add the MacroPad to Home Assistant. It should be automatically discovered
 - Wire up the keys to the ESP32-C3 Super Mini board
+- Print bracket and assemble: https://www.thingiverse.com/thing:5317404
 
 ## Build process
 ![Print](images/1.jpg)
